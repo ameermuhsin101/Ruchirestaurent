@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    flex-direction: column;
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    min-height: 100vh;
+}
+.btns{
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.btns .play{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: #6a1f1f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 25px #511b1b99;
+    transition: 0.5s;
+}
+
+.btns.active .play{
+    box-shadow: 0 0 0 150vh #6a1f1f;
+}
+
+.btns .play::before{
+    content: "";
+    position: absolute;
+    border: 25px solid #fff;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 0px solid transparent;
+    transform: translateX(5px);
+}
+
+.btns p{
+    font-weight: 500;
+    font-size: 1em;
+    color: #888;
+    letter-spacing: 4px;
+}
+
+.clip{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: 0.5s;
+}
+
+.clip.active{
+    transition-delay: 0.5s;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.clip video{
+    max-width: 990px;
+    max-height: 600px;
+    outline: none;
+    border: 10px solid #fff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.clip .close{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #fff;
+}
+.footer img{
+    margin-left: 45%;
+}
+
+@media(max-height: 601px){
+    .clip video{
+         max-height: 90%;
+    }
+    
+}
+@media(max-width:991px) {
+    .btns .play{
+        max-width: 90%;
+        
+    }
+}
+
+@media (width < 769px) {
+    body{
+        flex-direction: column;
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+    }
+}
+
+@media (height < 600px) {
+    .btns .play{
+        position: relative;
+        width: 0px;
+        height: 0px;
+        background: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 15px 25px #ffffff99;
+        cursor: auto;
+    }
+    .btns .play::before{
+        
+        border: 0 solid #ffffff;
+        
+    }
+    .footer img{
+        size: 0mm;
+    }
+}
